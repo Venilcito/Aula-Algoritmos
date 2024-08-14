@@ -1,25 +1,26 @@
 #include <stdio.h>
+#include <string.h>
 
 int main(){
 
     double saldo = 0;
-    int codigo;
+    char codigo[2];
 
     printf("Codigo | Opcao\n");
-    printf("   1   | Consulta Saldo\n");
-    printf("   2   | Saque\n");
-    printf("   3   | Deposito\n");
-    printf("   4   | Sair\n");
+    printf("   a   | Consulta Saldo\n");
+    printf("   b   | Saque\n");
+    printf("   c   | Deposito\n");
+    printf("   d   | Sair\n");
 
     while(1){
         printf("\nInsira o Codigo de Opcao: ");
-        scanf("%d", &codigo);
+        scanf("%s", codigo);
 
-        if(codigo == 1){
+        if(strcmp(codigo, "a") == 0){
             printf("Consulta saldo\n");
             printf("Seu saldo e de R$ %.2lf\n", saldo);
         }
-        if(codigo == 2){
+        else if(strcmp(codigo, "b") == 0){
             double saque;
             printf("Saque\n");
             printf("Digite o valor do saque: ");
@@ -29,18 +30,23 @@ int main(){
                 printf("Impossivel sacar, voce nao tem dinheiro!\n");
             } else{
                 saldo = saldo - saque;
+                printf("Saque de R$ %.2lf realizado. Novo saldo: R$ %.2lf\n", saque, saldo);
             }
         }
-        if(codigo == 3){
+        else if(strcmp(codigo, "c") == 0){
             double deposito;
             printf("Deposito\n");
             printf("Digite o valor do deposito: ");
             scanf("%lf", &deposito);
 
             saldo = saldo + deposito;
+            printf("Deposito de R$ %.2lf realizado. Novo saldo: R$ %.2lf\n", deposito, saldo);
         }
-        if(codigo == 4){
+        else if(strcmp(codigo, "d") == 0){
             break;
+        }
+        else{
+            printf("Codigo Invalido!\n");
         }
     }
 
