@@ -43,6 +43,7 @@ int main(){
             printf("Deposito de R$ %.2lf realizado. Novo saldo: R$ %.2lf\n", deposito, saldo);
         }
         else if(strcmp(codigo, "d") == 0){
+            printf("Adeus!\n");
             break;
         }
         else{
