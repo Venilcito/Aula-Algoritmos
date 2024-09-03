@@ -27,6 +27,3 @@ int main(){
 
     return 0;
 }
-
-// Ultrapassando Z
-// Possivel de resolver usando so while
