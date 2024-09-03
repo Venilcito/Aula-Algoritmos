@@ -17,7 +17,7 @@ int main() {
             case 'C': atual = 100; break;
             case 'D': atual = 500; break;
             case 'M': atual = 1000; break;
-            default: atual = 0; break; // Caso de caractere inválido
+            default: atual = 0; break;
         }
 
         romano = getchar();
@@ -30,7 +30,7 @@ int main() {
             case 'C': proximo = 100; break;
             case 'D': proximo = 500; break;
             case 'M': proximo = 1000; break;
-            default: proximo = 0; break; // Caso de caractere inválido ou fim de string
+            default: proximo = 0; break;
         }
 
         if (atual < proximo) {
@@ -44,3 +44,5 @@ int main() {
 
     return 0;
 }
+
+//admito esse eu pedi pro chatgpt pq nao soube fazer sem vetor
