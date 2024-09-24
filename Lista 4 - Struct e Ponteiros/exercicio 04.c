@@ -19,17 +19,18 @@ int main(){
         scanf("%d", &vetor[i].matricula);
         getchar();
         printf("Nota (prova 1): ");
-        scanf("%d", &vetor[i].nota1);
+        scanf("%lf", &vetor[i].nota1);
         getchar();
         printf("Nota (prova 2): ");
-        scanf("%d", &vetor[i].nota2);
+        scanf("%lf", &vetor[i].nota2);
         getchar();
         printf("Nota (prova 3): ");
-        scanf("%d", &vetor[i].nota3);
+        scanf("%lf", &vetor[i].nota3);
         getchar();
     }
 
-    int maiorp1 = 0, pos;
+    double maiorp1 = 0;
+    int pos, pos1, pos2;
     for(int i = 0; i < 5; i++){
         if(vetor[i].nota1 > maiorp1){
             maiorp1  = vetor[i].nota1;
@@ -38,8 +39,7 @@ int main(){
     }
     printf("\n");
 
-    double media, maiormedia = 0, menormedia = 100;
-    int pos1, pos2;
+    double media, maiormedia = 0, menormedia = 10;
     for(int i = 0; i < 5; i++){
         media = (vetor[i].nota1 + vetor[i].nota2 + vetor[i].nota3) / 3;
         if(media >= 6){
@@ -58,7 +58,7 @@ int main(){
         }
     }
 
-    printf("\nAluno com maior nota na p1: %s, nota %d\n", vetor[pos].nome, maiorp1);
+    printf("\nAluno com maior nota na p1: %s, nota %.2lf\n", vetor[pos].nome, maiorp1);
     printf("Aluno com maior media: %s, media %.2lf\n", vetor[pos1].nome, maiormedia);
     printf("Aluno com menor media: %s, media %.2lf\n", vetor[pos2].nome, menormedia);
 
