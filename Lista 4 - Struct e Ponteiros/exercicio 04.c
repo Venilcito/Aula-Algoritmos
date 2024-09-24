@@ -3,7 +3,7 @@
 struct alunos{
     char nome[50];
     int matricula;
-    int nota1, nota2, nota3;
+    double nota1, nota2, nota3;
 };
 
 int main(){
