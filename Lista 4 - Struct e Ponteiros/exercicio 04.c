@@ -36,11 +36,18 @@ int main(){
             pos = i;
         }
     }
-    printf("\nAluno com maior nota na p1: %s, nota %d\n", vetor[pos].nome, maiorp1);
+    printf("\n");
 
-    int media, maiormedia = 0, menormedia = 100, pos1, pos2;
+    double media, maiormedia = 0, menormedia = 100;
+    int pos1, pos2;
     for(int i = 0; i < 5; i++){
         media = (vetor[i].nota1 + vetor[i].nota2 + vetor[i].nota3) / 3;
+        if(media >= 6){
+            printf("%s -- Aprovado -- Media %.2lf\n", vetor[i].nome, media);
+        } else{
+            printf("%s -- Reprovado -- Media %.2lf\n", vetor[i].nome, media);
+        }
+
         if(media > maiormedia){
             maiormedia = media;
             pos1 = i;
@@ -50,8 +57,10 @@ int main(){
             pos2 = i;
         }
     }
-    printf("Aluno com maior media: %s, media %d\n", vetor[pos1].nome, maiormedia);
-    printf("Aluno com menor media: %s, media %d\n", vetor[pos2].nome, menormedia);
+
+    printf("\nAluno com maior nota na p1: %s, nota %d\n", vetor[pos].nome, maiorp1);
+    printf("Aluno com maior media: %s, media %.2lf\n", vetor[pos1].nome, maiormedia);
+    printf("Aluno com menor media: %s, media %.2lf\n", vetor[pos2].nome, menormedia);
 
     return 0;
 }
