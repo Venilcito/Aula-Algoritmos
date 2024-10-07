@@ -7,15 +7,16 @@ Ela faz isso usando uma variável "errno" que recebe um valor inteiro referente 
 Quando é usada a função "strerror()" na variável, ela retorna uma breve explicação sobre o erro
 */
 
-#include <stdio.h>									
+#include <stdio.h>
 #include <math.h>
 #include <errno.h>
 #include <string.h>
 #include <stdlib.h>
+#include <unistd.h>
 
 // Erro EDOM: Valor fora do domínio dos reais
 void erro_EDOM(){
-    double raiz = sqrt(-1);
+    double imaginario = sqrt(-1);
     printf("Erro EDOM: %d, %s\n", errno, strerror(errno));
 }
 
@@ -31,6 +32,12 @@ void erro_ENOENT(){
     printf("Erro ENOENT: %d, %s\n", errno, strerror(errno));
 }
 
+// Erro EACCES: Acesso negado a arquivo/pasta
+void erro_EACCES(){
+    FILE *arquivo = fopen("C:\\Windows\\System32", "r");
+    printf("Erro EACCES: %d, %s\n", errno, strerror(errno));
+}
+
 // Erro ENOMEM: Sem memória suficiente
 void erro_ENOMEM(){
     size_t muitacoisa = (size_t) -1;
@@ -38,10 +45,26 @@ void erro_ENOMEM(){
     printf("Erro ENOMEM: %d, %s\n", errno, strerror(errno));
 }
 
+// Erro EINVAL: Argumento inválido numa função
+void erro_EINVAL(){
+    FILE *arquivo = fopen("miottopelado.mp4", "r");
+    fseek(arquivo, -10, SEEK_SET);
+    printf("Erro EINVAL: %d, %s\n", errno, strerror(errno));
+}
+
+// Erro EBADF: Descrição de arquivo inválida
+void erro_EBADF(){
+    close(-1);
+    printf("Erro EBADF: %d, %s\n", errno, strerror(errno));
+}
+
 int main(){
     erro_EDOM();
     erro_ERANGE();
     erro_ENOENT();
+    erro_EACCES();
     erro_ENOMEM();
+    erro_EINVAL();
+    erro_EBADF();
     return 0;
 }
