@@ -28,7 +28,7 @@ struct node* inserir(struct node *raiz, int valor){
 void imprimir(struct node *raiz){
     if(raiz != NULL){
         imprimir(raiz -> esquerda);
-        printf("%d ", raiz -> conteudo);
+        printf("%d\t", raiz -> conteudo);
         imprimir(raiz -> direita);
     }
 }
@@ -46,20 +46,23 @@ int main(){
 
         switch(x){
             case 1:
-                printf("\nDigite um valor: ");
+                printf("Digite um valor: ");
                 scanf("%d", &valor);
                 arvore = inserir(arvore, valor);
+                system("CLS");
                 break;
             case 2:
+                system("CLS");
                 printf("Imprimindo arvore:\n");
                 imprimir(arvore);
                 printf("\n");
                 break;
             case 3:
-                printf("Saindo...\n");
+                printf("\nSaindo...\n");
                 break;
             default:
-                printf("Opcao invalida!\n");
+                system("CLS");
+                printf("\nOpcao invalida!\n");
         }
     } while(x != 3);
 
