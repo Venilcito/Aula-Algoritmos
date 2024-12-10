@@ -1,10 +1,9 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <string.h>
-#define MAX 100
+#define MAX 512
 
 typedef struct{
-    char itens[MAX];
+    int itens[MAX];
     int topo;
 } Pilha;
 
@@ -14,12 +13,12 @@ void iniciar(Pilha *ponteiro){
 
 void mostrar(Pilha *ponteiro){
     for(int i = ponteiro->topo; i >= 0; i--){
-        printf("%c", ponteiro->itens[i]);
+        printf("%d", ponteiro->itens[i]);
     }
     printf("\n");
 }
 
-void inserir(Pilha *ponteiro, char valor){
+void inserir(Pilha *ponteiro, int valor){
     ponteiro->itens[++ponteiro->topo] = valor;
 }
 
@@ -28,16 +27,16 @@ int main(){
     Pilha pilha;
     iniciar(&pilha);
 
-    char palavra[MAX];
-    printf("Insira uma palavra: ");
-    scanf("%[^\n]", palavra);
+    int numero;
+    printf("Insira um inteiro: ");
+    scanf("%d", &numero);
 
-    int tamanho = strlen(palavra);
-    for(int i = 0; i < tamanho; i++){
-        inserir(&pilha, palavra[i]);
+    while(numero != 0){
+        inserir(&pilha, numero % 2);
+        numero /= 2;
     }
 
-    printf("Palavra invertida:  ");
+    printf("Numero binario: ");
     mostrar(&pilha);
 
     return 0;
