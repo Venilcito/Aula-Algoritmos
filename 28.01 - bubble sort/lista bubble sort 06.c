@@ -19,16 +19,11 @@ int main(){
                 vetor[j] = vetor[j+1];
                 vetor[j+1] = aux;
 
-                printf("\n");
-                for(int i = 0; i < 6; i++){
-                printf("%d\t", vetor[i]);
-                }
-
-                troca++;
+                troca = 1;
             }
         }
 
-        if(troca <= 1){break;}
+        if(!troca){break;}
     }
 
     printf("\nOrdenado: ");
